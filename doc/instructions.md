@@ -42,3 +42,27 @@ Presentation de NodeJs
 
 ![Alt](img/nodejs_pro_cons.png "Title")
 
+
+##  II. Apprentissage de NodeJS
+Pour commencer, nous allons apprendre NodeJS. Beaucoup de chose seront difficile au début (ou ne seront pas explicable) mais notre objectif est d'abord de coder en NodeJS. Plus tard, ces éléments seront clarifiés.
+
+### 1. Téléchargement des sources des projets
+
+Pour commencer, télécharger sur votre PC les codes sources de départ. Pour cela, forker le projet github suivant: (https://github.com/ajocelynpatrick/complete-node-bootcamp.git).
+
+Ensuite choisissez un emplacement sur votre PC. Pour ma part, j'ai créé le répertoire  /home/patou/Documents/bizna/pasFini/ et je mettrai mon code source dedans (vous pouvez également le mettre sur le bureau). Pour cela, il faut :
+
+```bash
+patou@pc-pa:~$ cd /home/patou/Documents/bizna/pasFini/
+patou@pc-pa:~/Documents/bizna/pasFini$ git clone https://github.com/ajocelynpatrick/complete-node-bootcamp.git
+Cloning into 'complete-node-bootcamp'...
+remote: Enumerating objects: 372, done.
+Receiving objects:  93% (349/372), 41.04 MiB | 1.47 MiB/s
+```
+pour vérifier qu'on a bien descendu le dépôt git, il faut:
+```bash
+patou@pc-pa:~/Documents/bizna/pasFini$ ls
+backendNatours  complete-node-bootcamp  DjangoProj  OmniFood
+```
+on retrouve bien <span style="background-color:green">complete-node-bootcamp</span>
+
