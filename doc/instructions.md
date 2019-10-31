@@ -60,9 +60,62 @@ remote: Enumerating objects: 372, done.
 Receiving objects:  93% (349/372), 41.04 MiB | 1.47 MiB/s
 ```
 pour vérifier qu'on a bien descendu le dépôt git, il faut:
-```bash
-patou@pc-pa:~/Documents/bizna/pasFini$ ls
-backendNatours  complete-node-bootcamp  DjangoProj  OmniFood
-```
+
+  ```zsh
+    patou@pc-pa:~/Documents/bizna/pasFini$ ls
+    backendNatours  complete-node-bootcamp  DjangoProj  OmniFood
+  ```
+
 on retrouve bien <span style="background-color:green">complete-node-bootcamp</span>
 
+
+### 2. Interaction avec la ligne de commande NodeJS
+Dans la suite, nous allons utiliser VSCode comme IDE.
+Nous allons utiliser la ligne de commande fourni dans VSCode (mais on peut égalment utiliser la console linux car c'est la même ligne de commande).
+
+- <u>Premier programme sous NodeJS</u>
+
+  Pour écrire notre premier programme Node, nous allons utiliser la ligne de commande node en tapant ``"node"`` à la ligne de commande (utiliser soit la console soit le terminal sous vscode)
+
+    ```bash
+       patou@pc-pa:~$ node
+       Welcome to Node.js v12.13.0.
+       Type ".help" for more information.
+       >
+       > const name ='Patrick'
+       undefined
+       > 7+3
+       10
+
+       > .exit
+    ```
+Dans un cas général, ce genre de ligne de commande s'appelle REPL (Read Eval Printing Loop)
+
+**<u>Astuces</u>**
+ - <u>Dans le code node suivant </u>:
+
+```bash
+> 24+2
+26
+> _+4  
+30
+
+```
+
+  '\_" signifie le résultat de l'opération précédent
+
+ - <u>Tester la touche "tabulation"</u>
+Afficher les méthodes d'une classe donnée (exemple de la classe String)
+
+```bash
+> String.
+String.__defineGetter__      String.__defineSetter__      String.__lookupGetter__      String.__lookupSetter__      String.__proto__
+String.hasOwnProperty        String.isPrototypeOf         String.propertyIsEnumerable  String.toLocaleString        String.valueOf
+
+String.apply                 String.arguments             String.bind                  String.call                  String.caller
+String.constructor           String.toString              
+
+String.fromCharCode          String.fromCodePoint         String.length                String.name                  String.prototype
+String.raw
+
+```
