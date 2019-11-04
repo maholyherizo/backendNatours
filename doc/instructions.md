@@ -89,16 +89,16 @@ Nous allons utiliser la ligne de commande fourni dans VSCode (mais on peut égal
 
        > .exit
     ```
-Dans un cas général, ce genre de ligne de commande s'appelle REPL (Read Eval Printing Loop)
+Ce genre de ligne de commande s'appelle REPL (Read Eval Printing Loop)
 
 **<u>Astuces</u>**
  - <u>Dans le code node suivant </u>:
 
-```bash
-> 24+2
-26
-> _+4  
-30
+```js
+    > 24+2
+    26
+    > _+4  
+    30
 
 ```
 
@@ -107,7 +107,7 @@ Dans un cas général, ce genre de ligne de commande s'appelle REPL (Read Eval P
  - <u>Tester la touche "tabulation"</u>
 Afficher les méthodes d'une classe donnée (exemple de la classe String)
 
-```bash
+```js
 > String.
 String.__defineGetter__      String.__defineSetter__      String.__lookupGetter__      String.__lookupSetter__      String.__proto__
 String.hasOwnProperty        String.isPrototypeOf         String.propertyIsEnumerable  String.toLocaleString        String.valueOf
@@ -119,3 +119,53 @@ String.fromCharCode          String.fromCodePoint         String.length         
 String.raw
 
 ```
+
+### 3. Premier programme en javascript sous vscode
+
+Dans cette section nous allons créer un programme en js sous vscode. Importer le répertoire de notre projet sous vscode (comme on le ferait sous Atom ou Brackets <=> Open Folder).
+
+Vous devriez avoir une interface comme dans la figure ci-dessous:
+
+![Alt](img/vscode_projet.png "Title")
+
+Ensuite créer un fichier index.js dans le projet (enregistrer dans le répertoire principal pour le moment)
+
+Le contenu de notre fihier index.js sera comme suit:
+
+```js
+    const hello = "Hello";
+    console.log(hello);
+```
+Sauvegarder le fichier. Normalement, nous devions executer ce code dans navigateur (en utilisant une page web pour le charger). Cependant, avec NodeJs, nous allons le lancer comme un executable ou un script.
+
+Ouvrer un terminal, il est intéressant de savoir que vscode peut aussi ouvrir un terminal (pour moi Alt+T ouvre un terminal sur le projet)
+
+``` bash
+patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node index.js
+Hello
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cxc
