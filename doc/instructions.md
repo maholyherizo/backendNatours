@@ -158,9 +158,43 @@ Exemple d'import du module fs (https://nodejs.org/dist/latest-v12.x/docs/api/fs.
 const fs = require('fs');
 ```
 
+### 5. Lecture d'un fichier en Javascript
+Nous allons utiliser le module FS (File System) avec sa fonction `readFileSync()`. Cette fonction permet de lire un fichier de manière synchrone (c'est à dire que le code ne continue pas tant que la lecture n'est pas fini).
 
+Nous allons d'abord copier le répertoire Node-Farm des exemples dans notre répertoire des projets et surtout supprimer le répertoire final et ne garder que starter.
 
+Vous devriez avoir le projet ci-dessous
 
+![Alt](img/prj_rajout_nodefarm.png "vscode_proj")
+
+Ensuite nous allons modifier notre fichier index.js. Nous allons:
+
+- effacer le contenu complet du fichier
+- importer le module file system
+  ```js
+  const fs = require('fs')
+  ```
+- lire le texte input.txt qui est dans le répertoire txt de node-farm. Pour cela, nous allons utiliser la fonction `readFileSync()` et récupérer son retour dans une variable appelé `textIn`.
+
+Notre code devrait ressembler à ceci:
+
+```js
+ // importer le module file system
+const fs = require('fs');
+// lire un fichier et mettre son résultat dans une var textIn
+const textIn = fs.readFileSync('./1-node-farm/starter/txt/input.txt', 'utf-8');
+// afficher le contenu de la variable
+console.log(textIn);
+```
+
+L'execution du code nous donne:
+
+```bash
+patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node index.js
+The avocado 🥑 is popular in vegetarian cuisine as a substitute for meats in sandwiches and salads because of its high fat content 😄
+```
+
+### 6. Ecriture/Creation d'un fichier en Javascript
 
 
 
