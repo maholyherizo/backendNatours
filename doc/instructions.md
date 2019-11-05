@@ -145,7 +145,18 @@ patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node index.js
 Hello
 ```
 
+### 4. Documentation de NodeJs
 
+Afin de pouvoir mieux se former sur NodeJs, voici la documentation officielle (https://nodejs.org/dist/latest-v12.x/docs/api/synopsis.html)
+
+Par exemple, on retrouve dans la section REPL (chercher plus bas dans le menu de gauche), la documentation sur le REPL
+(https://nodejs.org/dist/latest-v12.x/docs/api/repl.html). Les sections qu'on voit dans le menu de gauche sont appelé des modules. Pour utiliser un module, il faut l'importer.
+
+Exemple d'import du module fs (https://nodejs.org/dist/latest-v12.x/docs/api/fs.html)
+
+```js
+const fs = require('fs');
+```
 
 
 
