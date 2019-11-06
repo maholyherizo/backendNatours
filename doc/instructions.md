@@ -196,9 +196,17 @@ The avocado 🥑 is popular in vegetarian cuisine as a substitute for meats in s
 
 ### 6. Ecriture/Creation d'un fichier en Javascript
 
+Nous allons maintenant modifier le même programme dans `index.js` et créer un texte que nous allons écrire dans un nouveau fichier texte.
 
-
-
+```js
+// texte à ecrire dans un fichier 
+// les guillements sont des backticks (AltGr+7 et espace).
+// c'est une manière de concatener un string sous ES6 (une version meilleur de js)
+const textOut = `This is what we know about the avocado: \n${textIn}. \nThis text was created on ${Date.now().toString()}`
+// ecrire dans un fichier ecriture.txt dont on donne le chemin relatif (ou complet)
+fs.writeFileSync('1-node-farm/starter/txt/ecriture.txt',textOut,'utf-8')
+console.log(textOut)
+```
 
 
 
