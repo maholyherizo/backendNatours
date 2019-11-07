@@ -161,6 +161,7 @@ const fs = require('fs');
 ### 5. Lecture d'un fichier en Javascript
 Nous allons utiliser le module FS (File System) avec sa fonction `readFileSync()`. Cette fonction permet de lire un fichier de manière synchrone (c'est à dire que le code ne continue pas tant que la lecture n'est pas fini).
 
+
 Nous allons d'abord copier le répertoire Node-Farm des exemples dans notre répertoire des projets et surtout supprimer le répertoire final et ne garder que starter.
 
 Vous devriez avoir le projet ci-dessous
@@ -207,9 +208,12 @@ const textOut = `This is what we know about the avocado: \n${textIn}. \nThis tex
 fs.writeFileSync('1-node-farm/starter/txt/ecriture.txt',textOut,'utf-8')
 console.log(textOut)
 ```
+### 7. Challenge et apprentissage:
 
+Pour se familiariser aux variables en js, lire la doc et faire le challenge Day 1 de javascript sur hackerrank.
+https://www.hackerrank.com/challenges/js10-let-and-const/
 
-
+![Alt](img/hackerrank_chall.png "challenge1")
 
 
 
