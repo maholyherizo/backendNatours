@@ -215,14 +215,101 @@ https://www.hackerrank.com/challenges/js10-let-and-const/
 
 ![Alt](img/hackerrank_chall.png "challenge1")
 
+### 8. Code bloquant (synchrone) et non bloquant (asynchrone)
+
+#### Qu'est-ce qu'un callback
+Un callback est une fonction qui est appelé à la fin de l'execution d'une tâche/action. Tous les API de NodeJs sont ecrits de manière à supporter des callbacks.
+
+#### Exemple bloquant (synchrone)
+```js
+    const fs = require("fs");
+    const data = fs.readFileSync('input.txt');
+
+    console.log(data.toString());
+    console.log("Program Ended");
+```
+Le code est executé ligne par ligne et même si la lecture du fichier dure plusieurs heures, le code est bloqué et ne continue que si la ligne d'avant est finie.
 
 
+#### Exemple non bloquant (asynchrone)
+Nous allons créer un nouveau fichier `readfile_asynchrone.js`, dans lequel, nous allons mettre le code suivant :
 
+D'après la doc (https://nodejs.org/dist/latest-v12.x/docs/api/fs.html), nous avons le prototype suivant :
+```js
+ 1	const fs=require('fs')
+ 2	
+ 3	fs.readFile ('./1-node-farm/starter/txt/input.txt', 'utf-8', (err, data) => {
+ 4	    if (err)
+ 5	    { 
+ 6	        throw err;
+ 7	    } 
+ 8	    console.log(data);
+ 9	  });
+10	
+11	  console.log('debut de lecture de fichier ....');
+12
+```
+Le code précédent s'écrit avec une lambda -fonction (on peut trouver la documentation simple [ici](https://www.tutorialspoint.com/es6/es6_functions.htm) (https://www.tutorialspoint.com/es6/es6_functions.htm)
 
+Ce code peut s'écrire avec une fonction en notation js aussi 
 
+```js
+ 1   const fs=require('fs')
+ 2   
+ 3   fs.readFile ('./1-node-farm/starter/txt/input.txt', 'utf-8', function (err, data) {
+ 4       if (err)
+ 5       { 
+ 6           throw err;
+ 7       }
+ 8       console.log(data);
+ 9   });
+10  
+11  console.log('debut de lecture de fichier ....');
+```
 
+### 9. Explication des callback dans les lectures asynchrones:
+   En general dans un callback, le premier argument sera l'erreur `err`. Et `data` contiendra la donnée qui sera retourné.
+   
+   L'execution de notre code nous donne 
+   
+```shell
+   patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node readfile_async.js 
+   debut de lecture de fichier ....
+   The avocado 🥑 is popular in vegetarian cuisine as a substitute for meats in sandwiches and salads because of its high fat content 😄
+   ```
+   Que s'est-il passé? 
+   Le message affiché par la ligne 11 est affiché avant la lecture du fichier. Pourquoi? parce que notre code est asynchrone et non bloquant. Le programme commence par lire le fichier (mais il ne finit pas tout de suite sa lecture) et donc le programme ne se bloque pas en attente de la finition de la lecture (Le code est donc non bloquant). Le résultat de la lecture est retourné par le callback (la function) qui sera appelé lorsque la lecture sera finie.
+   
+   Le programme continue son execution et on obtient un programme qui ne s'execute pas forcément dans l'ordre d'écriture. (Le code est asynchrone).
 
+   
+### 10. Pourquoi a-t-on besoin des appels non bloquant:
+ Parce que Node est monoThread (une seule thread pour tous les instructions), ce qui signifie qu'on ne peut pas faire des executions en parallèle.
+ 
+ <img src="img/NodeJs_monothread.png" width="500" > => <img src="img/NodeJs_monothread_one_fileread.png"  width="500" >  <p></p> <img src="img/NodeJs_monothread_one_fileread2.png"  width="500" > => <img src="img/NodeJs_monothread_one_fileread3.png"  width="500">
+ 
+ Que se passera-t-il quand chaque personne demandera une action ou une ressource? On obtiendra ceci:
+ 
+ <img src="img/NodeJs_monothread_one_fileread4.png"  width="500">  => <img src="img/NodeJs_monothread_one_fileread5.png"  width="500" >
+ 
+ Si les programmes sont synchrones alors il faut attendre que le premier se termine avant de pouvoir continuer le deuxième, etc. etc.
+ 
+ PS: C'est le role du developper de résoudre le problème en faisant du code asynchrone 
+ 
+ 
+###### Voila comment Nodejs règle le problème:
+ Un programmeur code en asynchrone et passe la main pour que les autres continue. Les tâches lourdes sont executés en tâche de fond (background).
+  <img src="img/simple_ideal1.png"  height="400" >  <img src="img/simple_ideal2.png"  height="400" > =>
 
+### Attention: 
+Le fait d'utiliser une callback ne fait pas que le code entier devient asynchrone.
 
+ ###### Callback hell
+ un callback hell sont des callbacks qui sont imbriqués avec des interdépances difficiles à lire et à comprendre.
+ 
+ <img src="img/callback_hell.png"  height="400" >
+ 
+ Le triangle qu'on voit en rouge, est un signe que le code est un callback hell. Pour éviter/résoudre les callback hell, il faut utiliser des concepts nouveaux comme les promises, Async/await. 
+ 
 
-cxc
+   
