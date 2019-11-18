@@ -311,5 +311,12 @@ Le fait d'utiliser une callback ne fait pas que le code entier devient asynchron
  
  Le triangle qu'on voit en rouge, est un signe que le code est un callback hell. Pour éviter/résoudre les callback hell, il faut utiliser des concepts nouveaux comme les promises, Async/await. 
  
+### 11. Lecture/Ecriture avec des callbacks chainés.
+<u>Instructions:</u>
+- Dans le répertoire txt, nous avons un fichier qui s'appelle `start.txt`. Dans ce fichier nous avons le contenu suivant : `read-this`.
+- créer un programme en `read_write.js` qui lit le contenu du fichier `start.txt` en mode asynchrone (aide: le code qu'on vient de faire plus haut dans le document fait exactement cela - lire un fichier et afficher sont contenu)
 
-   
+
+
+
+
