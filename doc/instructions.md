@@ -346,3 +346,63 @@ La sortie contient une chaine de caractère (ici: `read-this`). Nous allons alor
 <u>Remarque:</u> Ne pas lire le nom du fichier en dur car nous allons vouloir le changer plus tard
 (Aide: pour lire le contenu d'une variable x par exemple en js on utilisera \`${x} \` 
 comme dans angularjs ou Jquery)
+
+<u>*Réponse:*</u>
+
+On souhaite lire le fichier dont le nom est `data`. Or `data` tel qu'il est retourné contient le text `read-this` et on se rend compte que dans le répertoire on a un fichier qui s'appelle `read-this.txt`.
+
+On reprend le code de l'exercice d'avant. Au lieu d'afficher le texte (ligne 9), on va utiliser la donnée `data` (ou plutôt le contenu de la donnée `data`). Le résultat est mis dans `data2`
+
+ ```js
+     1  const fs=require('fs');
+     2
+     3  fs.readFile('./1-node-farm/starter/txt/start.txt','utf-8', (err,data)=>{
+     4      if (err){
+     5          throw err;
+     6      }
+     7      else 
+     8      {
+     9          console.log('Lecture de start.txt est fait. Les données lues sont : ', data);
+    10          console.log ('on va lire le fichier ' , `${data}`+'.txt');
+    11          fs.readFile('./1-node-farm/starter/txt/'+`${data}`+'.txt','utf-8', (err,data2)=>{
+    12              if (err){
+    13                  throw err;
+    14              }
+    15              else 
+    16              {
+    17                  console.log(data2);
+    18              }
+    19          });
+    20          console.log('Le contenu du fichier ', `${data}`+'.txt est :')
+    21      }
+    22  });
+   ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
