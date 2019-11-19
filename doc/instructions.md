@@ -378,8 +378,10 @@ On reprend le code de l'exercice d'avant. Au lieu d'afficher le texte (ligne 9),
     22  });
    ```
 
+<u>Exercice 3:</u>
+Rajouter après la lecture du fichier `read-this.txt`, une autre callback qui lit le fichier `append.txt` et qui met sa réponse dans `data3`
 
-
+<u>*Réponse à voir dans le fichier `read_write.js` dans le commit suivant*</u>
 
 
 
