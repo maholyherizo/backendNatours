@@ -312,11 +312,37 @@ Le fait d'utiliser une callback ne fait pas que le code entier devient asynchron
  Le triangle qu'on voit en rouge, est un signe que le code est un callback hell. Pour éviter/résoudre les callback hell, il faut utiliser des concepts nouveaux comme les promises, Async/await. 
  
 ### 11. Lecture/Ecriture avec des callbacks chainés.
-<u>Instructions:</u>
+<u>Exercice 1:</u>
 - Dans le répertoire txt, nous avons un fichier qui s'appelle `start.txt`. Dans ce fichier nous avons le contenu suivant : `read-this`.
 - créer un programme en `read_write.js` qui lit le contenu du fichier `start.txt` en mode asynchrone (aide: le code qu'on vient de faire plus haut dans le document fait exactement cela - lire un fichier et afficher sont contenu)
 
+La correction est la suivante : 
 
+  ```js
+     1  const fs=require('fs');
+     2
+     3  fs.readFile('./1-node-farm/starter/txt/start.txt','utf-8', (err,data)=>{
+     4      if (err){
+     5          throw err;
+     6      }
+     7      else 
+     8      {
+     9          console.log(data);
+    10      }
+    11  });
 
+   ```
+L'execution nous affiche la sortie suivante:
+ 
+ ```bash
+    patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node read_write.js 
+    read-this
+  ```
 
+<u>Exercice 2:</u>
+La sortie contient une chaine de caractère (ici: `read-this`). Nous allons alors utiliser ce résultat pour lire le fichier 
+`read-this.txt` qui est dans le même répertoire.
 
+<u>Remarque:</u> Ne pas lire le nom du fichier en dur car nous allons vouloir le changer plus tard
+(Aide: pour lire le contenu d'une variable x par exemple en js on utilisera \`${x} \` 
+comme dans angularjs ou Jquery)
