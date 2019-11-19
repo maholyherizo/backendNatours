@@ -14,7 +14,18 @@ fs.readFile('./1-node-farm/starter/txt/start.txt','utf-8', (err,data)=>{
             }
             else 
             {
-                console.log(data2);
+                console.log(`${data2}`);
+                console.log('maintenant on va lire append.txt');
+                fs.readFile('./1-node-farm/starter/txt/append.txt', 'utf-8', (err,data3)=>{
+                    if (err)
+                    {
+                        throw err;
+                    }
+                    else 
+                    {
+                        console.log(data3);
+                    }
+                });
             }
         });
         console.log('Le contenu du fichier ', `${data}`+'.txt est :')
