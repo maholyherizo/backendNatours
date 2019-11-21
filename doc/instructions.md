@@ -383,7 +383,8 @@ Rajouter après la lecture du fichier `read-this.txt`, une autre callback qui li
 
 <u>*Réponse à voir dans le fichier `read_write.js` dans le commit suivant*</u>
 
-
+<u>Exercice 4:</u>
+Ecrire la donnée `data2`et `data3` dans un fichier appelé `output.txt`
 
 
 
