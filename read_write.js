@@ -15,7 +15,7 @@ fs.readFile('./1-node-farm/starter/txt/start.txt','utf-8', (err,data)=>{
             else 
             {
                 console.log(`${data2}`);
-                console.log('maintenant on va lire append.txt');
+                console.log('maintenant on va lire append.txt:');
                 fs.readFile('./1-node-farm/starter/txt/append.txt', 'utf-8', (err,data3)=>{
                     if (err)
                     {
@@ -24,6 +24,9 @@ fs.readFile('./1-node-farm/starter/txt/start.txt','utf-8', (err,data)=>{
                     else 
                     {
                         console.log(data3);
+                        fs.writeFile('./1-node-farm/starter/txt/output.txt',`${data2}\n${data3}`,err=>{
+                            console.log('le fichier final a été créé et écrit avec data2 et data3')
+                        });
                     }
                 });
             }
