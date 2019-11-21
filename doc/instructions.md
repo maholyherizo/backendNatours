@@ -386,7 +386,9 @@ Rajouter après la lecture du fichier `read-this.txt`, une autre callback qui li
 <u>Exercice 4:</u>
 Ecrire la donnée `data2`et `data3` dans un fichier appelé `output.txt`
 
-
+Pour aller un peu plus loin avec les fichier, je vous recommande de jouer avec les exemples sur -  
+ - https://www.w3schools.com/nodejs/nodejs_filesystem.asp
+ - https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm
 
 
 
