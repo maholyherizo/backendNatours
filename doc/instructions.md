@@ -391,8 +391,32 @@ Pour aller un peu plus loin avec les fichier, je vous recommande de jouer avec l
  - https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm
 
 
+### 11. Creation d'un serveur web simple avec nodejs
 
-
+- Commencer par créer un fichier `web_server.js` sous vscode.
+- La première étape est d'importer le package `http` afin d'avoir accès à toutes les librairies de réseau.
+    ```js
+        const http = require('http');
+    ```
+- le seconde étape est de créer le server avec la méthode `createServer()` du module http. Cette méthode prend en entrée une callback et cette callback prend 2 variables: `request` et `response` (on peut utiliser d'autres noms). Nous allons donc créer le serveur avec une callback qui nous enverra la réponse textuelle suivante :'`Hello from the server`. Pour renvoyer cette réponse, on utilisera la methode `end()` de la variable `response`
+    
+    ```js
+        const webserver=http.createServer( (request, response) => {
+            //affichons la réponse du server 
+            response.end('Hello from the server');
+        });
+    
+    ```
+<u>Remarque:</u> La callback de la méthode `createServer()` est appelé à chaque fois que le serveur reçoit une requete de la part du client.
+    
+- Il faut se mettre à l'écoute des requetes et pour cela, nous allons appeler la méthode `listen()` du server qui prend
+deux paramètres: le numero de port d'écoute et l'adresse du server (dans notre cas, on utilisera `localhost`). 
+La méthode `listen()` prend également en argument un callback qui est appelé lorsque le serveur commence à écouter.
+   ```js
+        webserver.listen(8080,'127.0.0.1', ()=>{
+            console.log('Ecoute sur le port 8080 de localhost');
+        });
+   ```
 
 
 
