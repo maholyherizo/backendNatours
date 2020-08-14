@@ -1,5 +1,7 @@
-## I. Installation et introduction  de nodejs
-### 1. Installation de nodejs:
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+# I. Installation et introduction  de nodejs
+## 1. Installation de nodejs:
 - desinstaller la version de NodeJs sur votre machine
 
 ```bash
@@ -31,22 +33,22 @@ patou@pc-pa:~$ node -v
 v12.13.0
 ```
 
-### 2. Qu'est-ce que NoDEJs?
+## 2. Qu'est-ce que NoDEJs?
 Nodejs est un environnement d'execution de Javascript muni des librairies de code Javascript.
 Cela signifie qu'avec Node, on n'a plus besoin d'un navigateur pour executer Js mais on peut l'executer comme un programme en C++ ou en Python. Cela permet d'utiliser le js en tant que langage server-side (comme php ou python)
 
 
-### 3. Resumé sur fonctionalités et cas d'utilisation de NodeJs
+## 3. Resumé sur fonctionalités et cas d'utilisation de NodeJs
 
 Presentation de NodeJs
 
 ![Alt](img/nodejs_pro_cons.png "Title")
 
 
-##  II. Apprentissage de NodeJS
+#  II. Apprentissage de NodeJS
 Pour commencer, nous allons apprendre NodeJS. Beaucoup de chose seront difficile au début (ou ne seront pas explicable) mais notre objectif est d'abord de coder en NodeJS. Plus tard, ces éléments seront clarifiés.
 
-### 1. Téléchargement des sources des projets
+## 1. Téléchargement des sources des projets
 
 Pour commencer, télécharger sur votre PC les codes sources de départ. Pour cela, forker le projet github suivant: (https://github.com/ajocelynpatrick/complete-node-bootcamp.git).
 
@@ -69,7 +71,7 @@ pour vérifier qu'on a bien descendu le dépôt git, il faut:
 on retrouve bien <span style="background-color:green">complete-node-bootcamp</span>
 
 
-### 2. Interaction avec la ligne de commande NodeJS
+## 2. Interaction avec la ligne de commande NodeJS
 Dans la suite, nous allons utiliser VSCode comme IDE.
 Nous allons utiliser la ligne de commande fourni dans VSCode (mais on peut égalment utiliser la console linux car c'est la même ligne de commande).
 
@@ -120,7 +122,7 @@ String.raw
 
 ```
 
-### 3. Premier programme en javascript sous vscode
+## 3. Premier programme en javascript sous vscode
 
 Dans cette section nous allons créer un programme en js sous vscode. Importer le répertoire de notre projet sous vscode (comme on le ferait sous Atom ou Brackets <=> Open Folder).
 
@@ -145,7 +147,7 @@ patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node index.js
 Hello
 ```
 
-### 4. Documentation de NodeJs
+## 4. Documentation de NodeJs
 
 Afin de pouvoir mieux se former sur NodeJs, voici la documentation officielle (https://nodejs.org/dist/latest-v12.x/docs/api/synopsis.html)
 
@@ -158,7 +160,7 @@ Exemple d'import du module fs (https://nodejs.org/dist/latest-v12.x/docs/api/fs.
 const fs = require('fs');
 ```
 
-### 5. Lecture d'un fichier en Javascript
+## 5. Lecture d'un fichier en Javascript
 Nous allons utiliser le module FS (File System) avec sa fonction `readFileSync()`. Cette fonction permet de lire un fichier de manière synchrone (c'est à dire que le code ne continue pas tant que la lecture n'est pas fini).
 
 
@@ -195,7 +197,7 @@ patou@pc-pa:~/Documents/bizna/pasFini/backendNatours$ node index.js
 The avocado 🥑 is popular in vegetarian cuisine as a substitute for meats in sandwiches and salads because of its high fat content 😄
 ```
 
-### 6. Ecriture/Creation d'un fichier en Javascript
+## 6. Ecriture/Creation d'un fichier en Javascript
 
 Nous allons maintenant modifier le même programme dans `index.js` et créer un texte que nous allons écrire dans un nouveau fichier texte.
 
@@ -208,14 +210,14 @@ const textOut = `This is what we know about the avocado: \n${textIn}. \nThis tex
 fs.writeFileSync('1-node-farm/starter/txt/ecriture.txt',textOut,'utf-8')
 console.log(textOut)
 ```
-### 7. Challenge et apprentissage:
+## 7. Challenge et apprentissage:
 
 Pour se familiariser aux variables en js, lire la doc et faire le challenge Day 1 de javascript sur hackerrank.
 https://www.hackerrank.com/challenges/js10-let-and-const/
 
 ![Alt](img/hackerrank_chall.png "challenge1")
 
-### 8. Code bloquant (synchrone) et non bloquant (asynchrone)
+## 8. Code bloquant (synchrone) et non bloquant (asynchrone)
 
 #### Qu'est-ce qu'un callback
 Un callback est une fonction qui est appelé à la fin de l'execution d'une tâche/action. Tous les API de NodeJs sont ecrits de manière à supporter des callbacks.
@@ -267,7 +269,7 @@ Ce code peut s'écrire avec une fonction en notation js aussi
 11  console.log('debut de lecture de fichier ....');
 ```
 
-### 9. Explication des callback dans les lectures asynchrones:
+## 9. Explication des callback dans les lectures asynchrones:
    En general dans un callback, le premier argument sera l'erreur `err`. Et `data` contiendra la donnée qui sera retourné.
    
    L'execution de notre code nous donne 
@@ -283,7 +285,7 @@ Ce code peut s'écrire avec une fonction en notation js aussi
    Le programme continue son execution et on obtient un programme qui ne s'execute pas forcément dans l'ordre d'écriture. (Le code est asynchrone).
 
    
-### 10. Pourquoi a-t-on besoin des appels non bloquant:
+## 10. Pourquoi a-t-on besoin des appels non bloquant:
  Parce que Node est monoThread (une seule thread pour tous les instructions), ce qui signifie qu'on ne peut pas faire des executions en parallèle.
  
  <img src="img/NodeJs_monothread.png" width="500" > => <img src="img/NodeJs_monothread_one_fileread.png"  width="500" >  <p></p> <img src="img/NodeJs_monothread_one_fileread2.png"  width="500" > => <img src="img/NodeJs_monothread_one_fileread3.png"  width="500">
@@ -311,7 +313,7 @@ Le fait d'utiliser une callback ne fait pas que le code entier devient asynchron
  
  Le triangle qu'on voit en rouge, est un signe que le code est un callback hell. Pour éviter/résoudre les callback hell, il faut utiliser des concepts nouveaux comme les promises, Async/await. 
  
-### 11. Lecture/Ecriture avec des callbacks chainés.
+## 11. Lecture/Ecriture avec des callbacks chainés.
 <u>Exercice 1:</u>
 - Dans le répertoire txt, nous avons un fichier qui s'appelle `start.txt`. Dans ce fichier nous avons le contenu suivant : `read-this`.
 - créer un programme en `read_write.js` qui lit le contenu du fichier `start.txt` en mode asynchrone (aide: le code qu'on vient de faire plus haut dans le document fait exactement cela - lire un fichier et afficher sont contenu)
@@ -391,7 +393,7 @@ Pour aller un peu plus loin avec les fichier, je vous recommande de jouer avec l
  - https://www.tutorialspoint.com/nodejs/nodejs_file_system.htm
 
 
-### 11. Creation d'un serveur web simple avec nodejs
+## 12. Creation d'un serveur web simple avec nodejs
 
 - Commencer par créer un fichier `web_server.js` sous vscode.
 - La première étape est d'importer le package `http` afin d'avoir accès à toutes les librairies de réseau.
@@ -418,7 +420,16 @@ La méthode `listen()` prend également en argument un callback qui est appelé 
         });
    ```
 
+## 13. Concept de routage
 
+- Qu'est-ce que le routage?
+  Un système de routage permet de faire correspondre une URL donnée à une page précise. On définit donc que l'URL est la route vers la page.
+  
+  Exemple.
+
+- Implementation d'un routage simple dans Node( from scratch <=> partant de zero)
+
+- Dans les applications réelles, le routage peut devenir très compliqué donc on utilise Express.js pour le gérer.
 
 
 
