@@ -25,6 +25,7 @@
     - [Attention:](#attention)
   - [2.11. Lecture/Ecriture avec des callbacks chainés.](#211-lectureecriture-avec-des-callbacks-chainés)
 - [3. Creation d'un serveur web simple avec nodejs](#3-creation-dun-serveur-web-simple-avec-nodejs)
+- [4. Concept de routage](#4-concept-de-routage)
 
 <!-- /code_chunk_output -->
 
@@ -459,6 +460,55 @@ Pour tester, nous allons lancer le programme `web_server.js` en ligne de command
 et allons ouvrir une page internet dans un navigateur et le lien qu'on mettra sera `http://ocalhost:8080`:
 
 ![](img/web_server_test.png)
+
+
+# 4. Concept de routage
+
+- Qu'est-ce que le routage?
+  Un système de routage permet de faire correspondre une URL donnée à une page précise. On définit donc que l'URL est la route vers la page.
+
+- Implementation d'un routage simple dans Node( from scratch <=> partant de zero)
+
+- Dans les applications réelles, le routage peut devenir très compliqué donc on utilise Express.js (un framework en js ) pour le gérer.
+
+Commençons par regarder notre serveur web simple de la section précédente. On se rend compte que l'application ne réagit par du tout au changement d'url. Testons:
+- si on utilise l'url suivant : 
+`http://localhost:8080/product`, la page contient toujours le même texte. Donc la réponse est toujours la même.
+
+Le routage en developpement web consiste à implémenter des actions (ou des pages) différentes pour différents urls.
+
+Dans les projets plus que nous allons implémenter plus loin, nous utiliserons `Express.js` mais pour ce cas simple, nous allons le faire en nodejs.
+
+Nous allons continuer avec notre programme `web_server.js` (que nous allons réenregistrer dans un nouveau fichier `routage.js`)
+- la pemière  étape consiste à fournir un moyen au programme d'analyser l'url de la page. Pour cela, nous allons utiliser un module nodejs qui s'appelle `url`.
+    ```js
+        const url = require('url');
+    ```
+- La deuxième étape consiste à afficher (seulement l'url à partir de la requête dans la fonction `createServer`). Dans cette fonction, nous allons ajouter une instruction qui affiche l'url à partir de la requête.
+
+    ```js
+        console.log(request.url);
+    ```
+Maintenant, si on ouvre l'url `http://localhost:8080` dans un navigateur, il nous affiche les sorties suivantes :
+```sh
+patou@pa-linux:~/Documents/bizna/pasFini/backendNatours/fichier_projets/examples$ node routage.js 
+Ecoute sur le port 8080 de localhost
+/
+/favicon.ico
+```
+Et si on ouvre l'url `http://localhost:8080/index`, on obtient l'affichage ci-dessous:
+```sh
+patou@pa-linux:~/Documents/bizna/pasFini/backendNatours/fichier_projets/examples$ node routage.js 
+Ecoute sur le port 8080 de localhost
+/index
+/favicon.ico
+```
+
+
+
+
+
+
 
 
 
