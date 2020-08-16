@@ -539,8 +539,36 @@ Proposez votre solution et comparez avec la réponse.
 La réponse est dans le répo git dans le fichier `routage.js`. Lancer le fichier en ligne de commande par `node routage.js` et tester les url dans le navigateur.
 
 
+Si maintenant on entre un url qui n'est pas géré par notre algorithme de roytage, la page web n'arrête pas de mouliner car le serveur essaye de trouver une récponse adéquate mais n'y arrive pas. (ex: essayez `http://localhost:8080/test`). Il nous faudra alors rajouter un else dans notre algorithme afin que toute route qui n'est pas trouvée soit géré par notre algorithme de routage simple.
 
+initialiement nous avions:
+```js
+if (... || ... )
+{
 
+}
+else if (....)
+{
+
+}
+```
+Nous allons alors rajouter une clause `else` à la fin pour dire à notre serveur que la page n'a pas été trouvée.
+
+```js
+if (... || ... )
+{
+
+}
+else if (....)
+{
+
+}
+else 
+{
+  res.end('Page non trouvé');
+}
+```
+Proposez une solution et testez.
 
 
 
