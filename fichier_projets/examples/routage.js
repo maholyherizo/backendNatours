@@ -6,8 +6,21 @@ const url = require('url');
 const webserver=http.createServer( (request, response) => {
     // pour pouvoir analyser l'url, nous allons d'abord l'afficher.
     console.log(request.url);
-    //affichons la réponse du server 
-    response.end('Hello from the server');
+    const pathName = request.url;
+    //  || est l'opérateur OU en javascript
+    // === est l'operateur de comparaison de chaine de caractère en js
+    // doc officiel https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_de_comparaison
+    if (pathName === '/' || pathName === '/overview')
+    {
+        //affichons la réponse du server 
+        response.end('Ceci est l\'OVERVIEW');
+    }
+    else if (pathName==='/product')
+    {
+        //affichons la réponse du server 
+        response.end('Ceci est le PRODUCT');
+    }
+
 });
 
 webserver.listen(8080,'127.0.0.1', ()=>{
