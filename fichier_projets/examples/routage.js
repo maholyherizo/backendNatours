@@ -10,6 +10,8 @@ const webserver=http.createServer( (request, response) => {
     //  || est l'opérateur OU en javascript
     // === est l'operateur de comparaison de chaine de caractère en js
     // doc officiel https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_de_comparaison
+    response.setHeader("Content-Type", "application/json; charset=utf-8");
+
     if (pathName === '/' || pathName === '/overview')
     {
         //affichons la réponse du server 
@@ -19,6 +21,10 @@ const webserver=http.createServer( (request, response) => {
     {
         //affichons la réponse du server 
         response.end('Ceci est le PRODUCT');
+    }
+    else 
+    {
+        response.end('Page non trouvé');
     }
 
 });
