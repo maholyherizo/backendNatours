@@ -618,6 +618,24 @@ response.setHeader("Content-Type", "application/json; charset=utf-8");
 ```
 Testez. Le problème devrait être résolu.
 
+Encore un detail, on sait qu'une réponse http est toujours accompagné d'un status code (voir les détails ici https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP).
+
+Ainsi, nous devons aussi retourner le code 404 au cas où notre algorithme de routage ne trouve pas la page. 
+On peut retourner un status code avec l'instruction :
+```js
+  response.writeHead(404);
+```
+Exercice: Rajouter ce code dans la partie où les url ne sont pas gérés.
+
+
+Pour vérifier ensuite qu'on retourne bien un code 404, Inpecter la page (click droit / Inspect) et aller dans l'onglet  `Network` et ensuite rafraîchir la page.
+
+![](img/code_404.png)
+
+
+
+
+
 
 
 
