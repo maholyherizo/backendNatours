@@ -504,7 +504,39 @@ Ecoute sur le port 8080 de localhost
 /favicon.ico
 ```
 
+De ce qu'on comprend, on a dit qu'à chaque requête, on appelle la fonction `createServer`. Là nous avons fait une requête mais on a deux affichage d'url. 
+- le `/` 
+- le `/favicon.ico`
 
+En effet, pour chaque requête qu'on fait, le navigateur fait  toujours automatiquement une autre requête pour avoir le favicon.
+C'est ce qui explique qu'on affiche à chaque fois deux urls.
+
+Cependant, ce qui nous interesse vraiment est le premier url qui n'est pas le favicon.
+
+Essayons un url un peu plus complique avec des query strings pour faire une requete de type `GET`. 
+Pour un petit aide mémoire sur les requete `GET`, aller ici (https://www.w3schools.com/tags/ref_httpmethods.asp)
+
+Allez dans votre navigateur et tapez l'url suivant:
+`http://localhost:8080/overview?identifiant=toto?nom=titi`
+
+Nous obtenons comme url de la requete:
+`/overview?identifiant=toto?nom=titi`
+
+C'est pour parser ces variables passé en query string par exemple que le module `url` de nodejs nous sera utile.
+
+Maintenant qu'on comprend mieux les url, nous allons implémenter le routage. Nous allons faire en sorte que si on tape l'url:
+`http://localhost:8080/overview`, on ait un message et si on tape l'url `http://localhost:8080/product`, on ait un autre message.
+
+
+Dans la fonction `createServer`, 
+- sauvegarder l'url de la requete dans une variable nommé `pathName`;
+
+- Pour créer un routeur simple, nous allons tester si la valeur de cette variable `pathName` est égale à un texte ou à un autre et afficher la réponse correspondante. Nous allons créer une route vers `/overview`, `/product`. Pour cela, il faut juste tester si la variable `pathName` (qui contient l'url) est égale à l'un ou l'autre de ces deux valeurs.
+Si l'url est égale à `/` ou à `/overview` alors on va afficher `This is the OVERVIEW` et si l'url est `/product` alors on va afficher `This is the PRODUCT`.
+
+Proposez votre solution et comparez avec la réponse.
+
+La réponse est dans le répo git dans le fichier `routage.js`. Lancer le fichier en ligne de commande par `node routage.js` et tester les url dans le navigateur.
 
 
 
