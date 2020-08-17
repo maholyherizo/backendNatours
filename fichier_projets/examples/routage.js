@@ -24,7 +24,8 @@ const webserver=http.createServer( (request, response) => {
     }
     else 
     {
-        response.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+        response.writeHead(404, {'Content-Type':'text/html; charset=utf-8',
+                                  'Mon-Header-A-Moi':'hello-world'});        
         response.end('<h1>Page non trouvé</h1>');
     }
 

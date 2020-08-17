@@ -93,7 +93,7 @@ Receiving objects:  93% (349/372), 41.04 MiB | 1.47 MiB/s
 ```
 pour vérifier qu'on a bien descendu le dépôt git, il faut:
 
-  ```zsh
+  ```sh
     patou@pc-pa:~/Documents/bizna/pasFini$ ls
     backendNatours  complete-node-bootcamp  DjangoProj  OmniFood
   ```
@@ -641,6 +641,8 @@ Une chose qu'on pourrait faire est de spécifier que les données sont au format
   response.writeHead(404, {'Content-Type':'text/html'});
 ```
 Cela nous permettra de fournir une réponse au format HTML dans la réponse (Ici, on mettra par exemple la réponse dans une balise `<h1>`)
+Ainsi le navigateur s'attend à interpreter du HTML venant du server.
+
 
 Avec la réecriture dans le header, cela nous remet le problème d'affichage des caractères accentués.
 Pour résoudre ce problème, nous allons juste modifier le code :
@@ -654,7 +656,22 @@ en
         response.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
 ```
 
+On peut également s'amuser à spécifier notre propre header à la suite de ce header de la manière suivante:
 
+```js
+        response.writeHead(404, {'Content-Type':'text/html; charset=utf-8',
+                                  'Mon-Header-A-Moi':'hello-world'});
+```
+
+Si on inspecte la page et qu'on rafraichit,  on y trouve les headers spécifiés.
+
+![alt](img/header_perso.png)
+
+Remarque: On ne peut envoyer de header qu'avant d'avoir envoyé la réponse. Après avoir envoyé la réponse, on ne peut plus envoyer de header.
+
+Si nous ouvrions une route qui est connu (`/overview` ou `/product`), alors on verra que le status code est de 200 OK
+
+Une dernière remarque sur le routage. Les routes que nous avons définis n'ont rien à voir pour le moment avec des pages ou des chemins sur notre disque dur. 
 
 
 
