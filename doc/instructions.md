@@ -633,6 +633,28 @@ Pour vérifier ensuite qu'on retourne bien un code 404, Inpecter la page (click 
 ![](img/code_404.png)
 
 
+On peut également rajouter des informations dans les données de headers (données d'en-tête en français). Ces données doivent être fournies à la fonction `writeHead` au format json. 
+
+Une chose qu'on pourrait faire est de spécifier que les données sont au format html.
+
+```js
+  response.writeHead(404, {'Content-Type':'text/html'});
+```
+Cela nous permettra de fournir une réponse au format HTML dans la réponse (Ici, on mettra par exemple la réponse dans une balise `<h1>`)
+
+Avec la réecriture dans le header, cela nous remet le problème d'affichage des caractères accentués.
+Pour résoudre ce problème, nous allons juste modifier le code :
+```js
+        response.writeHead(404, {'Content-Type':'text/html'});
+```
+
+en 
+
+```js
+        response.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+```
+
+
 
 
 

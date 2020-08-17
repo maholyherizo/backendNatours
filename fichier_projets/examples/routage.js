@@ -24,8 +24,8 @@ const webserver=http.createServer( (request, response) => {
     }
     else 
     {
-        response.writeHead(404);
-        response.end('Page non trouvé');
+        response.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+        response.end('<h1>Page non trouvé</h1>');
     }
 
 });
